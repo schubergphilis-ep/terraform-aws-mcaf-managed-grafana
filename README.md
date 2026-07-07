@@ -19,7 +19,7 @@ Terraform module to create and manage Amazon Managed Grafana
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_execution_role"></a> [execution\_role](#module\_execution\_role) | schubergphilis/mcaf-role/aws | ~> 0.5.3 |
+| <a name="module_execution_role"></a> [execution\_role](#module\_execution\_role) | schubergphilis-ep/mcaf-role/aws | ~> 0.5.3 |
 
 ## Resources
 
