@@ -106,6 +106,17 @@ variable "permission_type" {
   }
 }
 
+variable "policy" {
+  type        = string
+  default     = null
+  description = "Additional Policy document to attach to the workspace IAM role. This is only valid when permission_type is set to CUSTOMER_MANAGED and no IAM role is specified."
+
+  validation {
+    condition     = var.policy == null || (var.permission_type == "CUSTOMER_MANAGED" && var.iam_role_arn == null)
+    error_message = "When policy is specified, permission_type must be CUSTOMER_MANAGED and iam_role_arn must not be set."
+  }
+}
+
 variable "region" {
   type        = string
   default     = null
