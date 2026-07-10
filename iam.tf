@@ -14,12 +14,15 @@ locals {
 }
 
 data "aws_iam_policy_document" "default" {
+  source_policy_documents = var.policy != null ? [var.policy] : null
+
   count = local.create_iam_role ? 1 : 0
 
   dynamic "statement" {
     for_each = contains(var.data_sources, "AMAZON_OPENSEARCH_SERVICE") ? { create : true } : {}
 
     content {
+      sid = "OpenSearchServiceAccess"
       actions = [
         "es:ESHttpGet",
         "es:DescribeElasticsearchDomains",
@@ -33,6 +36,7 @@ data "aws_iam_policy_document" "default" {
     for_each = contains(var.data_sources, "AMAZON_OPENSEARCH_SERVICE") ? { create : true } : {}
 
     content {
+      sid     = "OpenSearchServicePPLAccess"
       actions = ["es:ESHttpGet"]
       resources = [
         "arn:aws:es:*:*:domain/*/_msearch*",
@@ -45,6 +49,7 @@ data "aws_iam_policy_document" "default" {
     for_each = contains(var.data_sources, "PROMETHEUS") ? { create : true } : {}
 
     content {
+      sid = "PrometheusAccess"
       actions = [
         "aps:ListWorkspaces",
         "aps:DescribeWorkspace",
@@ -61,6 +66,7 @@ data "aws_iam_policy_document" "default" {
     for_each = contains(var.notification_destinations, "SNS") ? { create : true } : {}
 
     content {
+      sid       = "SNSAccess"
       actions   = ["sns:Publish"]
       resources = ["arn:aws:sns:*:${data.aws_caller_identity.current.account_id}:grafana*"]
     }
