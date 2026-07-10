@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-managed-grafana/compare/v1.0.2...v1.1.0) (2026-07-10)
+
+
+### 🚀 Features
+
+* Add support to specificy additional policies ([#4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-managed-grafana/issues/4)) ([bf31e02](https://github.com/schubergphilis-ep/terraform-aws-mcaf-managed-grafana/commit/bf31e021252dad42f3de8990da62800292f320e9))
+
 ## [1.0.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-managed-grafana/compare/v1.0.1...v1.0.2) (2026-07-07)
 
 
