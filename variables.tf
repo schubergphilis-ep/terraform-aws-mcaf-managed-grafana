@@ -48,12 +48,12 @@ variable "description" {
 
 variable "grafana_version" {
   type        = string
-  default     = "12.4"
+  default     = "13.2"
   description = "Specifies the version of Grafana to support in the new workspace."
 
   validation {
-    condition     = contains(["8.4", "9.4", "10.4", "12.4"], var.grafana_version)
-    error_message = "Valid values are \"8.4\", \"9.4\", \"10.4\" or \"12.4\"."
+    condition     = contains(["8.4", "9.4", "10.4", "12.4", "13.2"], var.grafana_version)
+    error_message = "Valid values are \"8.4\", \"9.4\", \"10.4\", \"12.4\" or \"13.2\"."
   }
 }
 
